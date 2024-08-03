@@ -67,7 +67,7 @@ protected:
 };
 
 UCLASS()
-class UCharacterAction_PlayerBasicAttack : public UCharacterAction
+class UCharacterAction_PlayerBasicAttack : public UChainedCharacterAction
 {
 	GENERATED_BODY()
 
@@ -77,4 +77,6 @@ public:
 protected:
 	virtual void OnBeginAction() override;
 	virtual void OnEndAction() override;
+
+	virtual TArray<Test::Metadata::CharacterActionMetadata> ChainActions() override;
 };

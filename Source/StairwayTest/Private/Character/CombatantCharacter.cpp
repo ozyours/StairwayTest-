@@ -3,6 +3,7 @@
 #include "Character/CombatantCharacter.h"
 
 #include "Character/CombatantCharacter_Metadata.h"
+#include "Character/PlayerCharacter/PlayerCharacter_CharacterAction.h"
 #include "Character/StatsComponent.h"
 
 #include "Components/CapsuleComponent.h"
@@ -47,10 +48,13 @@ void ACombatantCharacter::BeginPlay()
 	Super::BeginPlay();
 	StatsComponent->Param_HP = CombatantCharacterMetadata().Param_HP;
 
+	check(CombatantCharacterMetadata().Param_BasicAttackAction.Param_Class);
 	BasicAttackAction = NewObject<UChainedCharacterAction>(this, CombatantCharacterMetadata().Param_BasicAttackAction.Param_Class);
+	BasicAttackAction->BeginPlay();
 }
 
 void ACombatantCharacter::EndPlay(const EEndPlayReason::Type EndPlayReason)
 {
 	Super::EndPlay(EndPlayReason);
+	BasicAttackAction->EndPlay();
 }

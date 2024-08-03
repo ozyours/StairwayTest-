@@ -1,6 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "Character/PlayerCharacter/PlayerCharacter.h"
+#include "Character/PlayerCharacter/PlayerCharacter_CharacterAction.h"
 
 #include "GameFramework/SpringArmComponent.h"
 #include "Camera/CameraComponent.h"
@@ -10,6 +11,15 @@
 #include "InputAction.h"
 #include "EnhancedInputSubsystems.h"
 #include "InputMappingContext.h"
+
+Test::Metadata::PlayerCharacter::PlayerCharacter()
+{
+	Param_Name = "PlayerCharacter";
+	Param_DisplayName = FText::FromString("Player's Character");
+	Param_HP = 5000;
+	Param_Class = APlayerCharacter::StaticClass();
+	Param_BasicAttackAction = PlayerCharacterAction_BasicAttack();
+}
 
 Test::Metadata::CombatantCharacterMetadata UMetadata_PlayerCharacter::CombatantCharacterMetadata()
 {
@@ -105,4 +115,5 @@ void APlayerCharacter::Camera(const FInputActionValue& Value)
 
 void APlayerCharacter::Attack(const FInputActionValue& Value)
 {
+	GetBasicAttackAction()->BeginAction();
 }

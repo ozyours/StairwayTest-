@@ -67,3 +67,12 @@ void UCharacterAction_PlayerBasicAttack::OnEndAction()
 {
 	Super::OnEndAction();
 }
+
+TArray<Test::Metadata::CharacterActionMetadata> UCharacterAction_PlayerBasicAttack::ChainActions()
+{
+	return {
+		Test::Metadata::PlayerCharacterAction_BasicAttack_1(),
+		Test::Metadata::PlayerCharacterAction_BasicAttack_2(),
+		Test::Metadata::PlayerCharacterAction_BasicAttack_3(),
+	};
+}

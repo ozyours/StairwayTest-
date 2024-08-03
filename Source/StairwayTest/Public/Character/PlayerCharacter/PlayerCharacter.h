@@ -18,12 +18,7 @@ namespace Test::Metadata
 {
 	struct PlayerCharacter : CombatantCharacterMetadata
 	{
-		PlayerCharacter()
-		{
-			Param_Name = "PlayerCharacter";
-			Param_DisplayName = FText::FromString("Player's Character");
-			Param_HP = 5000;
-		}
+		PlayerCharacter();		
 	};
 }
 
@@ -36,7 +31,6 @@ class STAIRWAYTEST_API UMetadata_PlayerCharacter : public UCombatantCharacterMet
 public:
 	virtual Test::Metadata::CombatantCharacterMetadata CombatantCharacterMetadata() override;
 };
-
 
 // Player's combatant character
 UCLASS()

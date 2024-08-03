@@ -10,6 +10,6 @@ namespace Test::Metadata
 	{
 		FName Param_Name = "CharacterActionName";
 		FText Param_DisplayName = FText::FromString("Character Action Name");
-		TSubclassOf<UChainedCharacterAction> Param_Class = UChainedCharacterAction::StaticClass();
+		TSubclassOf<UCharacterAction> Param_Class = UCharacterAction::StaticClass();
 	};
 }

@@ -26,6 +26,7 @@ void UCombatantCharacterAnimation::NativeUpdateAnimation(float DeltaSeconds)
 		}
 
 		// Update basic attack
+		if (_combatant_character->GetBasicAttackAction())
 		{
 			BasicAttackIndex = _combatant_character->GetBasicAttackAction()->GetChainIndex() - 1;
 		}
