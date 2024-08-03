@@ -6,6 +6,11 @@
 #include "CharacterAction/ChainedCharacterAction.h"
 #include "GameFramework/PawnMovementComponent.h"
 
+void UCombatantCharacterAnimation::NativeBeginPlay()
+{
+	Super::NativeBeginPlay();
+}
+
 void UCombatantCharacterAnimation::NativeUpdateAnimation(float DeltaSeconds)
 {
 	Super::NativeUpdateAnimation(DeltaSeconds);
@@ -26,9 +31,18 @@ void UCombatantCharacterAnimation::NativeUpdateAnimation(float DeltaSeconds)
 		}
 
 		// Update basic attack
-		if (_combatant_character->GetBasicAttackAction())
+		/*if (const auto* _basic_attack = _combatant_character->GetBasicAttackAction())
 		{
-			BasicAttackIndex = _combatant_character->GetBasicAttackAction()->GetChainIndex() - 1;
-		}
+			if (_basic_attack->GetIsExecuting())
+				BasicAttackIndex = _basic_attack->GetChainIndex() - 1;
+			else
+				BasicAttackIndex = -1;
+		}*/
 	}
+}
+
+bool UCombatantCharacterAnimation::HandleNotify(const FAnimNotifyEvent& AnimNotifyEvent)
+{
+	OnAnimationNotify_Delegate.Broadcast(this, AnimNotifyEvent.NotifyName);
+	return Super::HandleNotify(AnimNotifyEvent);
 }

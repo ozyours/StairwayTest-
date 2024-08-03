@@ -45,6 +45,7 @@ APlayerCharacter::APlayerCharacter()
 	DefaultMappingContext = ConstructorHelpers::FObjectFinder<UInputMappingContext>(TEXT("/Script/EnhancedInput.InputMappingContext'/Game/Test/CombatantCharacter/PlayerCharacter/IMC_PlayerInput.IMC_PlayerInput'")).Object;
 	IA_Camera = ConstructorHelpers::FObjectFinder<UInputAction>(TEXT("/Script/EnhancedInput.InputAction'/Game/Test/CombatantCharacter/PlayerCharacter/IA_Camera.IA_Camera'")).Object;
 	IA_Move = ConstructorHelpers::FObjectFinder<UInputAction>(TEXT("/Script/EnhancedInput.InputAction'/Game/Test/CombatantCharacter/PlayerCharacter/IA_Move.IA_Move'")).Object;
+	IA_Attack = ConstructorHelpers::FObjectFinder<UInputAction>(TEXT("/Script/EnhancedInput.InputAction'/Game/Test/CombatantCharacter/PlayerCharacter/IA_Attack.IA_Attack'")).Object;
 }
 
 Test::Metadata::CombatantCharacterMetadata APlayerCharacter::CombatantCharacterMetadata()

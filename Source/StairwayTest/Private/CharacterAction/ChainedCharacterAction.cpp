@@ -34,6 +34,16 @@ void UChainedCharacterAction::EndPlay()
 void UChainedCharacterAction::Tick(const float _DeltaTime)
 {
 	Super::Tick(_DeltaTime);
+
+	if (!GetIsExecuting())
+	{
+		CurrentChainTimer = FMath::Max(CurrentChainTimer - _DeltaTime, 0.f);
+		// UE_LOG(LogTemp, Warning, TEXT("UChainedCharacterAction::Tick: %f"), CurrentChainTimer);
+		if (CurrentChainTimer == 0)
+		{
+			ChainIndex = 0;
+		}
+	}
 }
 
 // ##############################################################################
@@ -45,12 +55,12 @@ void UChainedCharacterAction::Tick(const float _DeltaTime)
 void UChainedCharacterAction::OnBeginAction()
 {
 	Super::OnBeginAction();
+	ChainActionObjects[ChainIndex]->BeginAction();
 }
 
 void UChainedCharacterAction::OnEndAction()
 {
 	Super::OnEndAction();
-	ChainActionObjects[ChainIndex]->BeginAction();
 }
 
 // ##############################################################################

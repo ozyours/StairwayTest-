@@ -49,7 +49,7 @@ protected:
 	virtual TArray<Test::Metadata::CharacterActionMetadata> ChainActions();
 
 private:
-	static constexpr float ChainTimer = 0.5f;
+	static constexpr float ChainTimer = 0.25f;
 	float CurrentChainTimer = 0.f;
 	int ChainIndex = 0;
 

@@ -7,6 +7,7 @@
 #include "CharacterAction.generated.h"
 
 class UCharacterAction;
+class ACombatantCharacter;
 
 namespace Test::Metadata
 {
@@ -28,6 +29,7 @@ public:
 
 	virtual void BeginPlay();
 	virtual void EndPlay();
+	ACombatantCharacter* GetCombatantCharacterOwner() const;
 
 protected:
 	virtual void Tick(const float _DeltaTime);
@@ -58,4 +60,16 @@ private:
 
 public:
 	bool GetIsExecuting() const { return IsExecuting; }
+
+	// ##############################################################################
+	// ##############################################################################
+	// ###########		Animation Notify
+	// ##############################################################################
+	// ##############################################################################
+
+protected:
+	static constexpr const char* NotifyName_Attack = "Attack";
+	static constexpr const char* NotifyName_Finish = "Finish";
+
+	virtual void OnAnimationNotify(const FName& _NotifyName);
 };

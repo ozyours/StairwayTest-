@@ -38,6 +38,7 @@ public:
 protected:
 	virtual void OnBeginAction() override;
 	virtual void OnEndAction() override;
+	virtual void OnAnimationNotify(const FName& _NotifyName) override;
 };
 
 UCLASS()
@@ -51,6 +52,7 @@ public:
 protected:
 	virtual void OnBeginAction() override;
 	virtual void OnEndAction() override;
+	virtual void OnAnimationNotify(const FName& _NotifyName) override;
 };
 
 UCLASS()
@@ -64,6 +66,7 @@ public:
 protected:
 	virtual void OnBeginAction() override;
 	virtual void OnEndAction() override;
+	virtual void OnAnimationNotify(const FName& _NotifyName) override;
 };
 
 UCLASS()
@@ -75,8 +78,5 @@ public:
 	virtual Test::Metadata::CharacterActionMetadata CharacterActionMetadata() override { return Test::Metadata::PlayerCharacterAction_BasicAttack(); }
 
 protected:
-	virtual void OnBeginAction() override;
-	virtual void OnEndAction() override;
-
 	virtual TArray<Test::Metadata::CharacterActionMetadata> ChainActions() override;
 };

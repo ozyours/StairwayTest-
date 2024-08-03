@@ -6,6 +6,10 @@
 #include "Animation/AnimInstance.h"
 #include "CombatantCharacterAnimation.generated.h"
 
+class UCombatantCharacterAnimation;
+
+DECLARE_MULTICAST_DELEGATE_TwoParams(FAnimationNotify, UCombatantCharacterAnimation*, FName);
+
 /**
  *
  */
@@ -15,9 +19,14 @@ class STAIRWAYTEST_API UCombatantCharacterAnimation : public UAnimInstance
 	GENERATED_BODY()
 
 public:
+	virtual void NativeBeginPlay() override;
 	virtual void NativeUpdateAnimation(float DeltaSeconds) override;
+	FAnimationNotify OnAnimationNotify_Delegate;
 
 protected:
+	virtual bool HandleNotify(const FAnimNotifyEvent& AnimNotifyEvent) override;
+
+public:
 	UPROPERTY(BlueprintReadOnly)
 	bool IsRunning = false;
 
