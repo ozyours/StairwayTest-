@@ -5,5 +5,5 @@
 
 AMyGameMode::AMyGameMode()
 {
-	DefaultPawnClass = APlayerCharacter::StaticClass();
+	DefaultPawnClass = ConstructorHelpers::FClassFinder<AActor>(TEXT("/Script/Engine.Blueprint'/Game/Test/CombatantCharacter/PlayerCharacter/BP_PlayerCharacter.BP_PlayerCharacter_C'")).Class;
 }

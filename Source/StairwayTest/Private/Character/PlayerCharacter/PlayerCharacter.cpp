@@ -29,7 +29,7 @@ Test::Metadata::CombatantCharacterMetadata UMetadata_PlayerCharacter::CombatantC
 APlayerCharacter::APlayerCharacter()
 {
 	GetMesh()->SetSkeletalMesh(ConstructorHelpers::FObjectFinder<USkeletalMesh>(TEXT("/Script/Engine.SkeletalMesh'/Game/ModularRPGHeroesPolyart/Meshes/OneMeshCharacters/CommonerSK.CommonerSK'")).Object);
-	GetMesh()->SetRelativeLocation(FVector(0, 0, -88));
+	GetMesh()->SetRelativeLocation(FVector(0, 0, -95));
 	GetMesh()->SetRelativeRotation(FRotator(0, -90, 0));
 	GetMesh()->SetAnimInstanceClass(ConstructorHelpers::FClassFinder<UAnimInstance>(TEXT("/Script/Engine.AnimBlueprint'/Game/Test/CombatantCharacter/PlayerCharacter/ABP_PlayerCharacter.ABP_PlayerCharacter_C'")).Class);
 
@@ -41,6 +41,15 @@ APlayerCharacter::APlayerCharacter()
 	CameraComponent = CreateDefaultSubobject<UCameraComponent>(TEXT("CameraComponent"));
 	CameraComponent->SetupAttachment(CameraSpringArm);
 	CameraComponent->bUsePawnControlRotation = true;
+
+	WeaponLeft = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("WeaponLeft"));
+	WeaponLeft->SetStaticMesh(ConstructorHelpers::FObjectFinder<UStaticMesh>(TEXT("/Script/Engine.StaticMesh'/Game/ModularRPGHeroesPolyart/Meshes/Weapons/Sword01SM.Sword01SM'")).Object);
+	WeaponLeft->SetupAttachment(GetMesh(), "hand_lSocket");
+	// WeaponLeft->SetRelativeRotation(FRotator());
+
+	WeaponRight = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("WeaponRight"));
+	WeaponRight->SetStaticMesh(ConstructorHelpers::FObjectFinder<UStaticMesh>(TEXT("/Script/Engine.StaticMesh'/Game/ModularRPGHeroesPolyart/Meshes/Weapons/Sword01SM.Sword01SM'")).Object);
+	WeaponRight->SetupAttachment(GetMesh(), "hand_rSocket");
 
 	DefaultMappingContext = ConstructorHelpers::FObjectFinder<UInputMappingContext>(TEXT("/Script/EnhancedInput.InputMappingContext'/Game/Test/CombatantCharacter/PlayerCharacter/IMC_PlayerInput.IMC_PlayerInput'")).Object;
 	IA_Camera = ConstructorHelpers::FObjectFinder<UInputAction>(TEXT("/Script/EnhancedInput.InputAction'/Game/Test/CombatantCharacter/PlayerCharacter/IA_Camera.IA_Camera'")).Object;
@@ -80,6 +89,10 @@ void APlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 
 void APlayerCharacter::Move(const FInputActionValue& Value)
 {
+	// Do not move while attacking
+	if (GetBasicAttackAction()->GetIsExecuting())
+		return;
+
 	// input is a Vector2D
 	FVector2D MovementVector = Value.Get<FVector2D>();
 

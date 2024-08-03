@@ -29,15 +29,6 @@ void UCombatantCharacterAnimation::NativeUpdateAnimation(float DeltaSeconds)
 				IsRunning = false;
 			}
 		}
-
-		// Update basic attack
-		/*if (const auto* _basic_attack = _combatant_character->GetBasicAttackAction())
-		{
-			if (_basic_attack->GetIsExecuting())
-				BasicAttackIndex = _basic_attack->GetChainIndex() - 1;
-			else
-				BasicAttackIndex = -1;
-		}*/
 	}
 }
 

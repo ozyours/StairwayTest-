@@ -9,20 +9,12 @@
   <component name="ChangeListManager">
     <list default="true" id="2ab06f41-4fd6-4731-b7be-759896ceac18" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.StairwayTest.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.StairwayTest.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ModularRPGHeroesPolyart/Animations/DoubleSwordStance/JumpAttack_DoubleSwordAnim.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ModularRPGHeroesPolyart/Animations/DoubleSwordStance/JumpAttack_DoubleSwordAnim.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/ModularRPGHeroesPolyart/Animations/DoubleSwordStance/NormalAttack01_DoubleSwordAnim.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ModularRPGHeroesPolyart/Animations/DoubleSwordStance/NormalAttack01_DoubleSwordAnim.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ModularRPGHeroesPolyart/Animations/DoubleSwordStance/NormalAttack02_DoubleSwordAnim.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ModularRPGHeroesPolyart/Animations/DoubleSwordStance/NormalAttack02_DoubleSwordAnim.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ModularRPGHeroesPolyart/Meshes/UE4_Mannequin_Skeleton.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ModularRPGHeroesPolyart/Meshes/UE4_Mannequin_Skeleton.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Test/CombatantCharacter/PlayerCharacter/ABP_PlayerCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Test/CombatantCharacter/PlayerCharacter/ABP_PlayerCharacter.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/StairwayTest/Private/Character/CombatantCharacterAnimation.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/StairwayTest/Private/Character/CombatantCharacterAnimation.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/StairwayTest/Private/Character/PlayerCharacter/PlayerCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/StairwayTest/Private/Character/PlayerCharacter/PlayerCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/StairwayTest/Private/Character/PlayerCharacter/PlayerCharacter_CharacterAction.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/StairwayTest/Private/Character/PlayerCharacter/PlayerCharacter_CharacterAction.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/StairwayTest/Private/CharacterAction/ChainedCharacterAction.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/StairwayTest/Private/CharacterAction/ChainedCharacterAction.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/StairwayTest/Private/CharacterAction/CharacterAction.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/StairwayTest/Private/CharacterAction/CharacterAction.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/StairwayTest/Public/Character/CombatantCharacterAnimation.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/StairwayTest/Public/Character/CombatantCharacterAnimation.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/StairwayTest/Public/Character/PlayerCharacter/PlayerCharacter_CharacterAction.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/StairwayTest/Public/Character/PlayerCharacter/PlayerCharacter_CharacterAction.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/StairwayTest/Public/CharacterAction/ChainedCharacterAction.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/StairwayTest/Public/CharacterAction/ChainedCharacterAction.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/StairwayTest/Public/CharacterAction/CharacterAction.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/StairwayTest/Public/CharacterAction/CharacterAction.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/StairwayTest/Private/MyGameMode.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/StairwayTest/Private/MyGameMode.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/StairwayTest/Public/Character/PlayerCharacter/PlayerCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/StairwayTest/Public/Character/PlayerCharacter/PlayerCharacter.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +137,7 @@
       <updated>1720015789823</updated>
       <workItem from="1720015791816" duration="126000" />
       <workItem from="1722604913627" duration="14362000" />
-      <workItem from="1722661754174" duration="2417000" />
+      <workItem from="1722661754174" duration="4829000" />
     </task>
     <servers />
   </component>

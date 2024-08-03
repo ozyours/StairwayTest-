@@ -18,7 +18,7 @@ namespace Test::Metadata
 {
 	struct PlayerCharacter : CombatantCharacterMetadata
 	{
-		PlayerCharacter();		
+		PlayerCharacter();
 	};
 }
 
@@ -54,6 +54,10 @@ private:
 	USpringArmComponent* CameraSpringArm;
 	UPROPERTY()
 	UCameraComponent* CameraComponent;
+	UPROPERTY(VisibleAnywhere)
+	UStaticMeshComponent* WeaponLeft;
+	UPROPERTY(VisibleAnywhere)
+	UStaticMeshComponent* WeaponRight;
 
 	UPROPERTY()
 	UInputMappingContext* DefaultMappingContext;
