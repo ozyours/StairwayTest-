@@ -15,6 +15,10 @@ namespace Test::Metadata
 		TSubclassOf<ACombatantCharacter> Param_Class = ACombatantCharacter::StaticClass();
 		CharacterActionMetadata Param_BasicAttackAction;
 
+		bool Param_PlayerTeam = true;
 		uint64 Param_HP = 1000;
+		uint64 Param_Attack = 100;
+
+		bool operator==(const CombatantCharacterMetadata& Other) const;
 	};
 }

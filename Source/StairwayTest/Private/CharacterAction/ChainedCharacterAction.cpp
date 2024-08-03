@@ -37,9 +37,9 @@ void UChainedCharacterAction::Tick(const float _DeltaTime)
 
 	if (!GetIsExecuting())
 	{
-		CurrentChainTimer = FMath::Max(CurrentChainTimer - _DeltaTime, 0.f);
+		CurrentChainTimout = FMath::Max(CurrentChainTimout - _DeltaTime, 0.f);
 		// UE_LOG(LogTemp, Warning, TEXT("UChainedCharacterAction::Tick: %f"), CurrentChainTimer);
-		if (CurrentChainTimer == 0)
+		if (CurrentChainTimout == 0)
 		{
 			ChainIndex = 0;
 		}
@@ -80,11 +80,11 @@ void UChainedCharacterAction::OnChainActionFinished(UCharacterAction* _Character
 	if (ChainIndex > ChainActionObjects.Num() - 1)
 	{
 		ChainIndex = 0;
-		CurrentChainTimer = 0;
+		CurrentChainTimout = 0;
 	}
 	else
 	{
-		CurrentChainTimer = ChainTimer;
+		CurrentChainTimout = ChainTimeout;
 	}
 
 	EndAction();

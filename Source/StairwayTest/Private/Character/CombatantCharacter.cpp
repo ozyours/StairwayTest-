@@ -3,7 +3,7 @@
 #include "Character/CombatantCharacter.h"
 
 #include "Character/CombatantCharacter_Metadata.h"
-#include "Character/PlayerCharacter/PlayerCharacter_CharacterAction.h"
+#include "Character/PlayerCharacter/PlayerCharacter_Action.h"
 #include "Character/StatsComponent.h"
 
 #include "Components/CapsuleComponent.h"
@@ -39,22 +39,53 @@ ACombatantCharacter::ACombatantCharacter()
 
 Test::Metadata::CombatantCharacterMetadata ACombatantCharacter::CombatantCharacterMetadata()
 {
-	unimplemented();
+	checkf(false, TEXT("Unimplemented Metadata: %s"), *GetName());
 	return Test::Metadata::CombatantCharacterMetadata();
 }
 
 void ACombatantCharacter::BeginPlay()
 {
 	Super::BeginPlay();
-	StatsComponent->Param_HP = CombatantCharacterMetadata().Param_HP;
-
-	check(CombatantCharacterMetadata().Param_BasicAttackAction.Param_Class);
-	BasicAttackAction = NewObject<UChainedCharacterAction>(this, CombatantCharacterMetadata().Param_BasicAttackAction.Param_Class);
-	BasicAttackAction->BeginPlay();
+	GetStatsComponent()->SetupStats(CombatantCharacterMetadata());
 }
 
 void ACombatantCharacter::EndPlay(const EEndPlayReason::Type EndPlayReason)
 {
 	Super::EndPlay(EndPlayReason);
-	BasicAttackAction->EndPlay();
+	
+	if (BasicAttackAction)
+		BasicAttackAction->EndPlay();
+}
+
+// ##############################################################################
+// ##############################################################################
+// ###########		Activation
+// ##############################################################################
+// ##############################################################################
+
+void ACombatantCharacter::OnActivated()
+{
+}
+
+void ACombatantCharacter::OnDeactivated()
+{
+}
+
+void ACombatantCharacter::Activate()
+{
+	// Setup basic attack action
+	check(CombatantCharacterMetadata().Param_BasicAttackAction.Param_Class);
+	BasicAttackAction = NewObject<UChainedCharacterAction>(this, CombatantCharacterMetadata().Param_BasicAttackAction.Param_Class);
+	BasicAttackAction->BeginPlay();
+
+	GetStatsComponent()->Activate();
+	GetStatsComponent()->OnEliminated_Delegate.AddLambda([this](UStatsComponent*)
+	{
+		Deactivate();
+	});
+}
+
+void ACombatantCharacter::Deactivate()
+{
+	GetStatsComponent()->Deactivate();
 }

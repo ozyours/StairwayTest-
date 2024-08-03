@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "Character/PlayerCharacter/PlayerCharacter.h"
-#include "Character/PlayerCharacter/PlayerCharacter_CharacterAction.h"
+#include "Character/PlayerCharacter/PlayerCharacter_Action.h"
 
 #include "GameFramework/SpringArmComponent.h"
 #include "Camera/CameraComponent.h"
@@ -18,7 +18,7 @@ Test::Metadata::PlayerCharacter::PlayerCharacter()
 	Param_DisplayName = FText::FromString("Player's Character");
 	Param_HP = 5000;
 	Param_Class = APlayerCharacter::StaticClass();
-	Param_BasicAttackAction = PlayerCharacterAction_BasicAttack();
+	Param_BasicAttackAction = PlayerCharacter_Action_BasicAttack();
 }
 
 Test::Metadata::CombatantCharacterMetadata UMetadata_PlayerCharacter::CombatantCharacterMetadata()
@@ -45,11 +45,12 @@ APlayerCharacter::APlayerCharacter()
 	WeaponLeft = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("WeaponLeft"));
 	WeaponLeft->SetStaticMesh(ConstructorHelpers::FObjectFinder<UStaticMesh>(TEXT("/Script/Engine.StaticMesh'/Game/ModularRPGHeroesPolyart/Meshes/Weapons/Sword01SM.Sword01SM'")).Object);
 	WeaponLeft->SetupAttachment(GetMesh(), "hand_lSocket");
-	// WeaponLeft->SetRelativeRotation(FRotator());
+	WeaponLeft->SetCollisionEnabled(ECollisionEnabled::Type::NoCollision);
 
 	WeaponRight = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("WeaponRight"));
 	WeaponRight->SetStaticMesh(ConstructorHelpers::FObjectFinder<UStaticMesh>(TEXT("/Script/Engine.StaticMesh'/Game/ModularRPGHeroesPolyart/Meshes/Weapons/Sword01SM.Sword01SM'")).Object);
 	WeaponRight->SetupAttachment(GetMesh(), "hand_rSocket");
+	WeaponRight->SetCollisionEnabled(ECollisionEnabled::Type::NoCollision);
 
 	DefaultMappingContext = ConstructorHelpers::FObjectFinder<UInputMappingContext>(TEXT("/Script/EnhancedInput.InputMappingContext'/Game/Test/CombatantCharacter/PlayerCharacter/IMC_PlayerInput.IMC_PlayerInput'")).Object;
 	IA_Camera = ConstructorHelpers::FObjectFinder<UInputAction>(TEXT("/Script/EnhancedInput.InputAction'/Game/Test/CombatantCharacter/PlayerCharacter/IA_Camera.IA_Camera'")).Object;
@@ -65,6 +66,7 @@ Test::Metadata::CombatantCharacterMetadata APlayerCharacter::CombatantCharacterM
 void APlayerCharacter::BeginPlay()
 {
 	Super::BeginPlay();
+	Activate();
 }
 
 void APlayerCharacter::Tick(float DeltaTime)

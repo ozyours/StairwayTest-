@@ -11,9 +11,7 @@ namespace Test::Metadata
 	struct ChainedCharacterActionMetadata;
 }
 
-/**
- *
- */
+// Chaining character action for doing combo attack
 UCLASS(Abstract)
 class STAIRWAYTEST_API UChainedCharacterAction : public UCharacterAction
 {
@@ -49,8 +47,8 @@ protected:
 	virtual TArray<Test::Metadata::CharacterActionMetadata> ChainActions();
 
 private:
-	static constexpr float ChainTimer = 0.25f;
-	float CurrentChainTimer = 0.f;
+	static constexpr float ChainTimeout = 0.25f;
+	float CurrentChainTimout = 0.f;
 	int ChainIndex = 0;
 
 	UPROPERTY()

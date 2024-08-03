@@ -2,9 +2,12 @@
 
 #include "Character/StatsComponent.h"
 
+#include "Character/CombatantCharacter_Metadata.h"
+
 UStatsComponent::UStatsComponent()
 {
 	PrimaryComponentTick.bCanEverTick = true;
+	bAutoActivate = false;
 }
 
 void UStatsComponent::BeginPlay()
@@ -12,24 +15,51 @@ void UStatsComponent::BeginPlay()
 	Super::BeginPlay();
 }
 
-void UStatsComponent::ApplyDamage(uint64 _Damage)
+// ##############################################################################
+// ##############################################################################
+// ###########		Stats
+// ##############################################################################
+// ##############################################################################
+
+void UStatsComponent::SetupStats(const Test::Metadata::CombatantCharacterMetadata& _Metadata)
 {
-	if (!IsAlive)
+	if (bSetup)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("UStatsComponent::SetupStats: StatsComponent owned by %s already setup."), *(GetOwner() ? GetOwner()->GetName() : "None"));
+		return;
+	}
+
+	bSetup = true;
+	Param_PlayerTeam = _Metadata.Param_PlayerTeam;
+	Param_HP = _Metadata.Param_HP;
+	Param_Attack = _Metadata.Param_Attack;
+
+	CurrentHP = Param_HP;
+}
+
+// ###############################################
+// ###############################################
+// ####		Apply Damage
+// ####
+
+void UStatsComponent::OnEliminated()
+{
+	OnEliminated_Delegate.Broadcast(this);
+}
+
+void UStatsComponent::ApplyDamage(UStatsComponent* _AttackerStatsComponent, uint64 _Damage)
+{
+	if (!IsAlive || !IsActive())
 		return;
 
-	if (_Damage >= Param_HP)
+	if (_Damage >= CurrentHP)
 	{
-		Param_HP = 0;
+		CurrentHP = 0;
 		OnEliminated();
 	}
 	else
 	{
-		Param_HP -= _Damage;
+		CurrentHP -= _Damage;
 	}
-	OnApplyDamage.Broadcast(this, _Damage);
-}
-
-void UStatsComponent::OnEliminated()
-{
-	OnEliminatedDelegate.Broadcast(this);
+	OnApplyDamage_Delegate.Broadcast(this, _Damage);
 }

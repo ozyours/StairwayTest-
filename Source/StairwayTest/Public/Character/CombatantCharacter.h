@@ -55,4 +55,18 @@ private:
 
 public:
 	UChainedCharacterAction* GetBasicAttackAction() const { return BasicAttackAction; }
+
+	// ##############################################################################
+	// ##############################################################################
+	// ###########		Activation
+	// ##############################################################################
+	// ##############################################################################
+
+protected:
+	virtual void OnActivated();
+	virtual void OnDeactivated();
+
+public:
+	void Activate();
+	void Deactivate();
 };

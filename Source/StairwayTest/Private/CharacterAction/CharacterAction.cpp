@@ -22,11 +22,6 @@ void UCharacterAction::BeginPlay()
 			Tick(_DeltaTime);
 		return true;
 	}));
-
-	Cast<UCombatantCharacterAnimation>(GetCombatantCharacterOwner()->GetMesh()->GetAnimInstance())->OnAnimationNotify_Delegate.AddLambda([this](UCombatantCharacterAnimation*, FName _NotifyName)
-	{
-		OnAnimationNotify(_NotifyName);
-	});
 }
 
 void UCharacterAction::EndPlay()
@@ -34,9 +29,11 @@ void UCharacterAction::EndPlay()
 	FTSTicker::GetCoreTicker().RemoveTicker(DH_Tick);
 }
 
-ACombatantCharacter* UCharacterAction::GetCombatantCharacterOwner() const
+ACombatantCharacter* UCharacterAction::GetCombatantCharacterOwner()
 {
-	return GetTypedOuter<ACombatantCharacter>();
+	if (!CombatantCharacterOwner)
+		CombatantCharacterOwner = GetTypedOuter<ACombatantCharacter>();
+	return CombatantCharacterOwner;
 }
 
 void UCharacterAction::Tick(const float _DeltaTime)
@@ -54,6 +51,15 @@ void UCharacterAction::BeginAction()
 	if (BeginActionRequirements())
 		return;
 
+	// Bind animation notification
+	if (auto* _animation_bp = Cast<UCombatantCharacterAnimation>(GetCombatantCharacterOwner()->GetMesh()->GetAnimInstance()))
+	{
+		DH_AnimNotify = _animation_bp->OnAnimationNotify_Delegate.AddLambda([this](UCombatantCharacterAnimation*, FName _NotifyName)
+		{
+			OnAnimationNotify(_NotifyName);
+		});
+	}
+
 	OnBeginAction();
 }
 
@@ -61,6 +67,11 @@ void UCharacterAction::EndAction()
 {
 	if (EndActionRequirements())
 		return;
+
+	if (auto* _animation_bp = Cast<UCombatantCharacterAnimation>(GetCombatantCharacterOwner()->GetMesh()->GetAnimInstance()))
+	{
+		_animation_bp->OnAnimationNotify_Delegate.Remove(DH_AnimNotify);
+	}
 
 	OnEndAction();
 }

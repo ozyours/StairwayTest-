@@ -29,12 +29,13 @@ public:
 
 	virtual void BeginPlay();
 	virtual void EndPlay();
-	ACombatantCharacter* GetCombatantCharacterOwner() const;
+	ACombatantCharacter* GetCombatantCharacterOwner();
 
 protected:
 	virtual void Tick(const float _DeltaTime);
 
 private:
+	ACombatantCharacter* CombatantCharacterOwner = nullptr;
 	FTSTicker::FDelegateHandle DH_Tick;
 
 	// ##############################################################################
@@ -66,6 +67,9 @@ public:
 	// ###########		Animation Notify
 	// ##############################################################################
 	// ##############################################################################
+
+private:
+	FDelegateHandle DH_AnimNotify;
 
 protected:
 	static constexpr const char* NotifyName_Attack = "Attack";
