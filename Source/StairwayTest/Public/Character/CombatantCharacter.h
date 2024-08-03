@@ -6,6 +6,7 @@
 #include "GameFramework/Character.h"
 #include "CombatantCharacter.generated.h"
 
+class UChainedCharacterAction;
 class UStatsComponent;
 
 namespace Test::Metadata
@@ -27,6 +28,13 @@ public:
 
 protected:
 	virtual void BeginPlay() override;
+	virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
+
+	// ##############################################################################
+	// ##############################################################################
+	// ###########		Component
+	// ##############################################################################
+	// ##############################################################################
 
 private:
 	UPROPERTY(VisibleAnywhere)
@@ -34,4 +42,17 @@ private:
 
 public:
 	UStatsComponent* GetStatsComponent() const { return StatsComponent; }
+
+	// ##############################################################################
+	// ##############################################################################
+	// ###########		Character Action
+	// ##############################################################################
+	// ##############################################################################
+
+private:
+	UPROPERTY()
+	UChainedCharacterAction* BasicAttackAction = nullptr;
+
+public:
+	UChainedCharacterAction* GetBasicAttackAction() const { return BasicAttackAction; }
 };

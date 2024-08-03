@@ -20,4 +20,7 @@ public:
 protected:
 	UPROPERTY(BlueprintReadOnly)
 	bool IsRunning = false;
+
+	UPROPERTY(BlueprintReadOnly)
+	int BasicAttackIndex = -1;
 };

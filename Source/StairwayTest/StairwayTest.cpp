@@ -3,4 +3,4 @@
 #include "StairwayTest.h"
 #include "Modules/ModuleManager.h"
 
-IMPLEMENT_PRIMARY_GAME_MODULE( FDefaultGameModuleImpl, StairwayTest, "StairwayTest" );
+IMPLEMENT_PRIMARY_GAME_MODULE(FDefaultGameModuleImpl, StairwayTest, "StairwayTest");

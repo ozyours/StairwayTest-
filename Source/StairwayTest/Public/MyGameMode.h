@@ -7,13 +7,13 @@
 #include "MyGameMode.generated.h"
 
 /**
- * 
+ *
  */
 UCLASS()
 class STAIRWAYTEST_API AMyGameMode : public AGameModeBase
 {
 	GENERATED_BODY()
-	
+
 public:
 	AMyGameMode();
 };

@@ -46,4 +46,11 @@ void ACombatantCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 	StatsComponent->Param_HP = CombatantCharacterMetadata().Param_HP;
+
+	BasicAttackAction = NewObject<UChainedCharacterAction>(this, CombatantCharacterMetadata().Param_BasicAttackAction.Param_Class);
+}
+
+void ACombatantCharacter::EndPlay(const EEndPlayReason::Type EndPlayReason)
+{
+	Super::EndPlay(EndPlayReason);
 }

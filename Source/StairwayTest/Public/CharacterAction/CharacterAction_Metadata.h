@@ -1,7 +1,7 @@
 ﻿#pragma once
 
 #include "CoreMinimal.h"
-#include "CharacterAction.h"
+#include "ChainedCharacterAction.h"
 
 namespace Test::Metadata
 {
@@ -10,6 +10,6 @@ namespace Test::Metadata
 	{
 		FName Param_Name = "CharacterActionName";
 		FText Param_DisplayName = FText::FromString("Character Action Name");
-		TSubclassOf<UCharacterAction> Param_Class = UCharacterAction::StaticClass();
+		TSubclassOf<UChainedCharacterAction> Param_Class = UChainedCharacterAction::StaticClass();
 	};
 }

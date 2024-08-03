@@ -3,6 +3,7 @@
 #include "Character/CombatantCharacterAnimation.h"
 
 #include "Character/CombatantCharacter.h"
+#include "CharacterAction/ChainedCharacterAction.h"
 #include "GameFramework/PawnMovementComponent.h"
 
 void UCombatantCharacterAnimation::NativeUpdateAnimation(float DeltaSeconds)
@@ -11,6 +12,7 @@ void UCombatantCharacterAnimation::NativeUpdateAnimation(float DeltaSeconds)
 
 	if (const auto* _combatant_character = Cast<ACombatantCharacter>(TryGetPawnOwner()))
 	{
+		// Update is running
 		{
 			const auto* _movement_component = _combatant_character->GetMovementComponent();
 			if (_movement_component->Velocity.Length() > 1 && !_movement_component->IsFalling())
@@ -21,6 +23,11 @@ void UCombatantCharacterAnimation::NativeUpdateAnimation(float DeltaSeconds)
 			{
 				IsRunning = false;
 			}
+		}
+
+		// Update basic attack
+		{
+			BasicAttackIndex = _combatant_character->GetBasicAttackAction()->GetChainIndex() - 1;
 		}
 	}
 }
