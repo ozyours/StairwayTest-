@@ -3,6 +3,7 @@
 #include "Character/CombatantCharacter.h"
 
 #include "Character/CombatantCharacter_Metadata.h"
+#include "Character/CombatantCharacter_MetadataObject.h"
 #include "Character/PlayerCharacter/PlayerCharacter_Action.h"
 #include "Character/StatsComponent.h"
 
@@ -52,7 +53,7 @@ void ACombatantCharacter::BeginPlay()
 void ACombatantCharacter::EndPlay(const EEndPlayReason::Type EndPlayReason)
 {
 	Super::EndPlay(EndPlayReason);
-	
+
 	if (BasicAttackAction)
 		BasicAttackAction->EndPlay();
 }
@@ -64,14 +65,6 @@ void ACombatantCharacter::EndPlay(const EEndPlayReason::Type EndPlayReason)
 // ##############################################################################
 
 void ACombatantCharacter::OnActivated()
-{
-}
-
-void ACombatantCharacter::OnDeactivated()
-{
-}
-
-void ACombatantCharacter::Activate()
 {
 	// Setup basic attack action
 	check(CombatantCharacterMetadata().Param_BasicAttackAction.Param_Class);
@@ -85,7 +78,48 @@ void ACombatantCharacter::Activate()
 	});
 }
 
-void ACombatantCharacter::Deactivate()
+void ACombatantCharacter::OnDeactivated()
 {
 	GetStatsComponent()->Deactivate();
+}
+
+void ACombatantCharacter::Activate()
+{
+	if (bActivation)
+		return;
+
+	bActivation = true;
+	OnActivated();
+}
+
+void ACombatantCharacter::Deactivate()
+{
+	if (!bActivation)
+		return;
+
+	bActivation = false;
+	OnDeactivated();
+}
+
+// ##############################################################################
+// ##############################################################################
+// ###########		Spawn
+// ##############################################################################
+// ##############################################################################
+
+ACombatantCharacter* ACombatantCharacter::Spawn(UWorld* _World, const TSubclassOf<ACombatantCharacter>& _Class, const FVector& _Location, const FRotator& _Rotation)
+{
+	FActorSpawnParameters _spawn_parameters;
+	_spawn_parameters.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButAlwaysSpawn;
+	return _World->SpawnActor<ACombatantCharacter>(_Class, _Location, _Rotation, _spawn_parameters);
+}
+
+ACombatantCharacter* ACombatantCharacter::Spawn(UWorld* _World, const Test::Metadata::CombatantCharacterMetadata& _Metadata, const FVector& _Location, const FRotator& _Rotation)
+{
+	return Spawn(_World, _Metadata.Param_Class, _Location, _Rotation);
+}
+
+ACombatantCharacter* ACombatantCharacter::Spawn(UWorld* _World, const TSubclassOf<UCombatantCharacterMetadata> _Metadata, const FVector& _Location, const FRotator& _Rotation)
+{
+	return Spawn(_World, _Metadata->GetDefaultObject<UCombatantCharacterMetadata>()->CombatantCharacterMetadata(), _Location, _Rotation);
 }

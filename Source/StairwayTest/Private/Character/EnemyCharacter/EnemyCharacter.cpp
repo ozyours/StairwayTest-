@@ -28,7 +28,7 @@ AEnemyCharacter::AEnemyCharacter()
 void AEnemyCharacter::BeginPlay()
 {
 	Super::BeginPlay();
-	GetStatsComponent()->Activate();
+	Activate();
 }
 
 void AEnemyCharacter::Tick(float DeltaTime)

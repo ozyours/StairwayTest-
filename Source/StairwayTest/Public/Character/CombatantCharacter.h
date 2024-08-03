@@ -6,6 +6,7 @@
 #include "GameFramework/Character.h"
 #include "CombatantCharacter.generated.h"
 
+class UCombatantCharacterMetadata;
 class UChainedCharacterAction;
 class UStatsComponent;
 
@@ -62,11 +63,26 @@ public:
 	// ##############################################################################
 	// ##############################################################################
 
+private:
+	bool bActivation = false;
+
 protected:
 	virtual void OnActivated();
 	virtual void OnDeactivated();
 
 public:
+	bool GetActivation() const { return bActivation; }
 	void Activate();
 	void Deactivate();
+
+	// ##############################################################################
+	// ##############################################################################
+	// ###########		Spawn
+	// ##############################################################################
+	// ##############################################################################
+
+public:
+	static ACombatantCharacter* Spawn(UWorld* _World, const TSubclassOf<ACombatantCharacter>& _Class, const FVector& _Location, const FRotator& _Rotation = FRotator(0));
+	static ACombatantCharacter* Spawn(UWorld* _World, const Test::Metadata::CombatantCharacterMetadata& _Metadata, const FVector& _Location, const FRotator& _Rotation = FRotator(0));
+	static ACombatantCharacter* Spawn(UWorld* _World, const TSubclassOf<UCombatantCharacterMetadata> _Metadata, const FVector& _Location, const FRotator& _Rotation = FRotator(0));
 };

@@ -8,39 +8,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2ab06f41-4fd6-4731-b7be-759896ceac18" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Source/StairwayTest/Private/Character/EnemyCharacter/EnemyCharacter.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/StairwayTest/Private/Character/EnemyCharacter/EnemyCharacter_HPWidget.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/StairwayTest/Private/Character/EnemyCharacter/Knight/EnemyCharacter_Knight.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/StairwayTest/Private/Character/EnemyCharacter/Knight/EnemyCharacter_Knight_Action.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/StairwayTest/Private/Character/EnemyCharacter/Warrior/EnemyCharacter_Warrior.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/StairwayTest/Private/Character/EnemyCharacter/Warrior/EnemyCharacter_Warrior_Action.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/StairwayTest/Private/Character/PlayerCharacter/PlayerCharacter_Attack.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/StairwayTest/Public/Character/EnemyCharacter/EnemyCharacter.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/StairwayTest/Public/Character/EnemyCharacter/EnemyCharacter_HPWidget.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/StairwayTest/Public/Character/EnemyCharacter/Knight/EnemyCharacter_Knight.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/StairwayTest/Public/Character/EnemyCharacter/Knight/EnemyCharacter_Knight_Action.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/StairwayTest/Public/Character/EnemyCharacter/Warrior/EnemyCharacter_Warrior.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/StairwayTest/Public/Character/EnemyCharacter/Warrior/EnemyCharacter_Warrior_Action.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/StairwayTest/Public/Character/PlayerCharacter/PlayerCharacter_Attack.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/StairwayTest/Private/EnemySpawnArea.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/StairwayTest/Public/EnemySpawnArea.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.StairwayTest.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.StairwayTest.dir/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Test/Maps/NewWorld.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Test/Maps/NewWorld.umap" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/StairwayTest/Private/Character/CombatantCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/StairwayTest/Private/Character/CombatantCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/StairwayTest/Private/Character/CombatantCharacter_Metadata.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/StairwayTest/Private/Character/CombatantCharacter_Metadata.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/StairwayTest/Private/Character/EnemyCharacter/EnemyCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/StairwayTest/Private/Character/EnemyCharacter/EnemyCharacter.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/StairwayTest/Private/Character/PlayerCharacter/PlayerCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/StairwayTest/Private/Character/PlayerCharacter/PlayerCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/StairwayTest/Private/Character/PlayerCharacter/PlayerCharacter_CharacterAction.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/StairwayTest/Private/Character/PlayerCharacter/PlayerCharacter_Action.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/StairwayTest/Private/Character/StatsComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/StairwayTest/Private/Character/StatsComponent.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/StairwayTest/Private/CharacterAction/ChainedCharacterAction.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/StairwayTest/Private/CharacterAction/ChainedCharacterAction.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/StairwayTest/Private/CharacterAction/CharacterAction.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/StairwayTest/Private/CharacterAction/CharacterAction.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/StairwayTest/Private/DamagingObject/DamagingObject.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/StairwayTest/Private/DamagingObject/DamagingObject.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/StairwayTest/Public/Character/CombatantCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/StairwayTest/Public/Character/CombatantCharacter.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/StairwayTest/Public/Character/CombatantCharacter_Metadata.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/StairwayTest/Public/Character/CombatantCharacter_Metadata.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/StairwayTest/Public/Character/PlayerCharacter/PlayerCharacter_CharacterAction.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/StairwayTest/Public/Character/PlayerCharacter/PlayerCharacter_Action.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/StairwayTest/Public/Character/StatsComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/StairwayTest/Public/Character/StatsComponent.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/StairwayTest/Public/CharacterAction/ChainedCharacterAction.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/StairwayTest/Public/CharacterAction/ChainedCharacterAction.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/StairwayTest/Public/CharacterAction/CharacterAction.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/StairwayTest/Public/CharacterAction/CharacterAction.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/StairwayTest/Public/DamagingObject/DamagingObject.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/StairwayTest/Public/DamagingObject/DamagingObject.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/StairwayTest/StairwayTest.Build.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Source/StairwayTest/StairwayTest.Build.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,6 +141,9 @@
       <workItem from="1720015791816" duration="126000" />
       <workItem from="1722604913627" duration="14362000" />
       <workItem from="1722661754174" duration="18662000" />
+      <workItem from="1722682799683" duration="523000" />
+      <workItem from="1722683395570" duration="6495000" />
+      <workItem from="1722698397905" duration="3117000" />
     </task>
     <servers />
   </component>

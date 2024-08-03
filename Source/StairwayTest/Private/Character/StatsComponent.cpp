@@ -55,6 +55,7 @@ void UStatsComponent::ApplyDamage(UStatsComponent* _AttackerStatsComponent, uint
 	if (_Damage >= CurrentHP)
 	{
 		CurrentHP = 0;
+		IsAlive = false;
 		OnEliminated();
 	}
 	else

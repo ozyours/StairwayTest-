@@ -17,6 +17,7 @@ Test::Metadata::PlayerCharacter::PlayerCharacter()
 	Param_Name = "PlayerCharacter";
 	Param_DisplayName = FText::FromString("Player's Character");
 	Param_HP = 5000;
+	Param_Attack = 400;
 	Param_Class = APlayerCharacter::StaticClass();
 	Param_BasicAttackAction = PlayerCharacter_Action_BasicAttack();
 }
