@@ -58,6 +58,8 @@ FVector AEnemySpawnArea::RandomizeSpawnLocation() const
 
 void AEnemySpawnArea::SpawnCharacters()
 {
+	RespawnText->SetText(FText::FromString("Ready"));
+
 	TArray<TSubclassOf<UCombatantCharacterMetadata>> _classes;
 	TArray<uint32> _count;
 

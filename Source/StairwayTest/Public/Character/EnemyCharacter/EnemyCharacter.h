@@ -7,9 +7,6 @@
 #include "EnemyCharacter.generated.h"
 
 class UWidgetComponent;
-class UAISenseConfig_Sight;
-class UAISenseConfig;
-class UAIPerceptionComponent;
 
 UCLASS()
 class STAIRWAYTEST_API AEnemyCharacter : public ACombatantCharacter
@@ -32,12 +29,6 @@ public:
 	// ##############################################################################
 
 private:
-	UPROPERTY(VisibleDefaultsOnly)
-	UAIPerceptionComponent* AIPerceptionComponent;
-
-	UPROPERTY()
-	UAISenseConfig_Sight* SightSense;
-	
 	UPROPERTY()
 	UWidgetComponent* HPWidgetComponent;
 

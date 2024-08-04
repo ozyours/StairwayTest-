@@ -2,6 +2,10 @@
 
 #include "Character/EnemyCharacter/Knight/EnemyCharacter_Knight_Action.h"
 
+#include "Character/CombatantCharacter.h"
+#include "Character/CombatantCharacterAnimation.h"
+#include "Character/PlayerCharacter/PlayerCharacter_Attack.h"
+
 Test::Metadata::EnemyCharacter_Knight_Action_BasicAttack_1::EnemyCharacter_Knight_Action_BasicAttack_1()
 {
 	Param_Name = "EnemyKnightBasicAttack1";
@@ -32,16 +36,29 @@ Test::Metadata::EnemyCharacter_Knight_Action_BasicAttack::EnemyCharacter_Knight_
 void UEnemyCharacter_Knight_Action_BasicAttack_1::OnBeginAction()
 {
 	Super::OnBeginAction();
+	Cast<UCombatantCharacterAnimation>(GetCombatantCharacterOwner()->GetMesh()->GetAnimInstance())->BasicAttackIndex = 0;
 }
 
 void UEnemyCharacter_Knight_Action_BasicAttack_1::OnEndAction()
 {
 	Super::OnEndAction();
+	Cast<UCombatantCharacterAnimation>(GetCombatantCharacterOwner()->GetMesh()->GetAnimInstance())->BasicAttackIndex = -1;
 }
 
 void UEnemyCharacter_Knight_Action_BasicAttack_1::OnAnimationNotify(const FName& _NotifyName)
 {
 	Super::OnAnimationNotify(_NotifyName);
+	if (_NotifyName == NotifyName_Attack)
+	{
+		const auto _location = GetCombatantCharacterOwner()->GetActorLocation();
+		const auto _direction = GetCombatantCharacterOwner()->GetActorForwardVector();
+		auto* _attack = GetWorld()->SpawnActor<APlayerCharacter_Attack_BasicAttack>(_location + _direction * 100.f, _direction.Rotation());
+		_attack->Activate(GetCombatantCharacterOwner()->GetStatsComponent());
+	}
+	else if (_NotifyName == NotifyName_Finish)
+	{
+		EndAction();
+	}
 }
 
 // ##############################################################################

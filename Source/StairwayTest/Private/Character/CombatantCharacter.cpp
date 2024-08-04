@@ -107,16 +107,12 @@ void ACombatantCharacter::Deactivate()
 // ##############################################################################
 // ##############################################################################
 
-ACombatantCharacter* ACombatantCharacter::Spawn(UWorld* _World, const TSubclassOf<ACombatantCharacter>& _Class, const FVector& _Location, const FRotator& _Rotation)
-{
-	FActorSpawnParameters _spawn_parameters;
-	_spawn_parameters.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButAlwaysSpawn;
-	return _World->SpawnActor<ACombatantCharacter>(_Class, _Location, _Rotation, _spawn_parameters);
-}
-
 ACombatantCharacter* ACombatantCharacter::Spawn(UWorld* _World, const Test::Metadata::CombatantCharacterMetadata& _Metadata, const FVector& _Location, const FRotator& _Rotation)
 {
-	return Spawn(_World, _Metadata.Param_Class, _Location, _Rotation);
+	auto _asset_class = LoadClass<AActor>(nullptr, *_Metadata.Param_AssetPath);
+	FActorSpawnParameters _spawn_parameters;
+	_spawn_parameters.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButAlwaysSpawn;
+	return _World->SpawnActor<ACombatantCharacter>(_asset_class ? _asset_class : _Metadata.Param_Class.Get(), _Location, _Rotation, _spawn_parameters);
 }
 
 ACombatantCharacter* ACombatantCharacter::Spawn(UWorld* _World, const TSubclassOf<UCombatantCharacterMetadata> _Metadata, const FVector& _Location, const FRotator& _Rotation)

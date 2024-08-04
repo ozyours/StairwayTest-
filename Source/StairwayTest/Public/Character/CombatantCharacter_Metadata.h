@@ -13,6 +13,7 @@ namespace Test::Metadata
 		FName Param_Name = "CharacterName";
 		FText Param_DisplayName = FText::FromString("Character Display Name");
 		TSubclassOf<ACombatantCharacter> Param_Class = ACombatantCharacter::StaticClass();
+		FString Param_AssetPath;
 		CharacterActionMetadata Param_BasicAttackAction;
 
 		bool Param_PlayerTeam = true;

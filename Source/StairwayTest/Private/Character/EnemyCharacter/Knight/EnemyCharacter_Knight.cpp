@@ -11,6 +11,7 @@ Test::Metadata::EnemyCharacter_Knight::EnemyCharacter_Knight()
 	Param_DisplayName = FText::FromString("Enemy Knight");
 	Param_HP = 2000;
 	Param_Class = AEnemyCharacter_Knight::StaticClass();
+	Param_AssetPath = "/Script/Engine.Blueprint'/Game/Test/CombatantCharacter/EnemyCharacter/BP_EnemyCharacter_Knight.BP_EnemyCharacter_Knight_C'";
 	Param_BasicAttackAction = EnemyCharacter_Knight_Action_BasicAttack();
 }
 
@@ -24,6 +25,7 @@ AEnemyCharacter_Knight::AEnemyCharacter_Knight()
 	GetMesh()->SetSkeletalMesh(ConstructorHelpers::FObjectFinder<USkeletalMesh>(TEXT("/Script/Engine.SkeletalMesh'/Game/ModularRPGHeroesPolyart/Meshes/OneMeshCharacters/KnightSK.KnightSK'")).Object);
 	GetMesh()->SetRelativeLocation(FVector(0, 0, -95));
 	GetMesh()->SetRelativeRotation(FRotator(0, -90, 0));
+	GetMesh()->SetAnimInstanceClass(ConstructorHelpers::FClassFinder<UAnimInstance>(TEXT("/Script/Engine.AnimBlueprint'/Game/Test/CombatantCharacter/EnemyCharacter/ABP_EnemyCharacter_Knight.ABP_EnemyCharacter_Knight_C'")).Class);
 }
 
 Test::Metadata::CombatantCharacterMetadata AEnemyCharacter_Knight::CombatantCharacterMetadata()

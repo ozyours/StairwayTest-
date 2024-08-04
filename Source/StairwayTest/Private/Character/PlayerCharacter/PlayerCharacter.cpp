@@ -11,6 +11,8 @@
 #include "InputAction.h"
 #include "EnhancedInputSubsystems.h"
 #include "InputMappingContext.h"
+#include "Perception/AIPerceptionStimuliSourceComponent.h"
+#include "Perception/AISense_Sight.h"
 
 Test::Metadata::PlayerCharacter::PlayerCharacter()
 {
@@ -57,6 +59,9 @@ APlayerCharacter::APlayerCharacter()
 	IA_Camera = ConstructorHelpers::FObjectFinder<UInputAction>(TEXT("/Script/EnhancedInput.InputAction'/Game/Test/CombatantCharacter/PlayerCharacter/IA_Camera.IA_Camera'")).Object;
 	IA_Move = ConstructorHelpers::FObjectFinder<UInputAction>(TEXT("/Script/EnhancedInput.InputAction'/Game/Test/CombatantCharacter/PlayerCharacter/IA_Move.IA_Move'")).Object;
 	IA_Attack = ConstructorHelpers::FObjectFinder<UInputAction>(TEXT("/Script/EnhancedInput.InputAction'/Game/Test/CombatantCharacter/PlayerCharacter/IA_Attack.IA_Attack'")).Object;
+
+	AIPerceptionStimulus = CreateDefaultSubobject<UAIPerceptionStimuliSourceComponent>(TEXT("AIPerceptionStimulus"));
+	AIPerceptionStimulus->RegisterForSense(UAISense_Sight::StaticClass());
 }
 
 Test::Metadata::CombatantCharacterMetadata APlayerCharacter::CombatantCharacterMetadata()
@@ -68,6 +73,7 @@ void APlayerCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 	Activate();
+	AIPerceptionStimulus->RegisterWithPerceptionSystem();
 }
 
 void APlayerCharacter::Tick(float DeltaTime)

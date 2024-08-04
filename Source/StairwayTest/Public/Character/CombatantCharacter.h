@@ -82,7 +82,6 @@ public:
 	// ##############################################################################
 
 public:
-	static ACombatantCharacter* Spawn(UWorld* _World, const TSubclassOf<ACombatantCharacter>& _Class, const FVector& _Location, const FRotator& _Rotation = FRotator(0));
 	static ACombatantCharacter* Spawn(UWorld* _World, const Test::Metadata::CombatantCharacterMetadata& _Metadata, const FVector& _Location, const FRotator& _Rotation = FRotator(0));
 	static ACombatantCharacter* Spawn(UWorld* _World, const TSubclassOf<UCombatantCharacterMetadata> _Metadata, const FVector& _Location, const FRotator& _Rotation = FRotator(0));
 };

@@ -7,6 +7,8 @@
 #include "Character/CombatantCharacter_MetadataObject.h"
 #include "PlayerCharacter.generated.h"
 
+class UAISense;
+class UAIPerceptionStimuliSourceComponent;
 class USpringArmComponent;
 class UCameraComponent;
 
@@ -50,9 +52,9 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 private:
-	UPROPERTY()
+	UPROPERTY(VisibleAnywhere)
 	USpringArmComponent* CameraSpringArm;
-	UPROPERTY()
+	UPROPERTY(VisibleAnywhere)
 	UCameraComponent* CameraComponent;
 	UPROPERTY(VisibleAnywhere)
 	UStaticMeshComponent* WeaponLeft;
@@ -72,4 +74,7 @@ private:
 	void Move(const struct FInputActionValue& Value);
 	void Camera(const struct FInputActionValue& Value);
 	void Attack(const struct FInputActionValue& Value);
+
+	UPROPERTY(VisibleAnywhere)
+	UAIPerceptionStimuliSourceComponent* AIPerceptionStimulus;
 };

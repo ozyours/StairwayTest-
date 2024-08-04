@@ -1,0 +1,31 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": 
+	{
+		"files.exclude": {
+			"**/.git": true,
+			"**/.svn": true,
+			"**/.hg": true,
+			"**/CVS": true,
+			"**/.DS_Store": true,
+			"**/Thumbs.db": true,
+			"**/.vs": true,
+			"**/Binaries": true,
+			"**/Build": true,
+			"**/Built": true,
+			"**/Derived*": true,
+			"**/Intermediate": true,
+			"**/Platforms": true,
+			"**/Plugins/*/Binaries/*": true,
+			"**/Plugins/*/Intermediate/*": true,
+		},
+		"C_Cpp.vcFormat.newLine.beforeOpenBrace.function": "newLine",
+		"C_Cpp.vcFormat.newLine.beforeOpenBrace.block": "newLine",
+		"C_Cpp.vcFormat.newLine.beforeOpenBrace.namespace": "newLine",
+		"C_Cpp.vcFormat.newLine.beforeOpenBrace.lambda": "newLine"
+	}
+}

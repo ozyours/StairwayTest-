@@ -2,20 +2,18 @@
 
 #include "Character/EnemyCharacter/EnemyCharacter.h"
 
-#include "Character/StatsComponent.h"
+#include "Character/EnemyCharacter/EnemyAIController.h"
 #include "Character/EnemyCharacter/EnemyCharacter_HPWidget.h"
 #include "Components/WidgetComponent.h"
-#include "Perception/AIPerceptionComponent.h"
-#include "Perception/AISenseConfig_Sight.h"
+#include "GameFramework/CharacterMovementComponent.h"
 
 AEnemyCharacter::AEnemyCharacter()
 {
+	GetCharacterMovement()->bOrientRotationToMovement = false;
+	GetCharacterMovement()->bUseControllerDesiredRotation = true;
+
 	AutoPossessAI = EAutoPossessAI::PlacedInWorldOrSpawned;
-
-	SightSense = CreateDefaultSubobject<UAISenseConfig_Sight>(TEXT("AISenseConfig"));
-
-	AIPerceptionComponent = CreateDefaultSubobject<UAIPerceptionComponent>(TEXT("AIPerceptionComponent"));
-	AIPerceptionComponent->ConfigureSense(*SightSense);
+	AIControllerClass = AEnemyAIController::StaticClass();
 
 	HPWidgetComponent = CreateDefaultSubobject<UWidgetComponent>(TEXT("HPWidgetComponent"));
 	HPWidgetComponent->SetupAttachment(GetRootComponent());

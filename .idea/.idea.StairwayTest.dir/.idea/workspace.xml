@@ -8,16 +8,43 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2ab06f41-4fd6-4731-b7be-759896ceac18" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Source/StairwayTest/Private/EnemySpawnArea.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/StairwayTest/Public/EnemySpawnArea.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/StairwayTest/Private/Character/EnemyCharacter/BTNodes/BTD_PlayerInSight.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/StairwayTest/Private/Character/EnemyCharacter/BTNodes/BTS_AIPerceptionService.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/StairwayTest/Private/Character/EnemyCharacter/BTNodes/BTS_FocusPlayerTarget.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/StairwayTest/Private/Character/EnemyCharacter/BTNodes/BTT_ChooseAttackOrHold.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/StairwayTest/Private/Character/EnemyCharacter/BTNodes/BTT_DoAttack.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/StairwayTest/Private/Character/EnemyCharacter/BTNodes/BTT_GeneratePatrolDestination.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/StairwayTest/Private/Character/EnemyCharacter/BTNodes/BTT_GenerateStrafeLocation.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/StairwayTest/Private/Character/EnemyCharacter/EnemyAIController.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/StairwayTest/Public/Character/EnemyCharacter/BTNodes/BTD_PlayerInSight.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/StairwayTest/Public/Character/EnemyCharacter/BTNodes/BTS_AIPerceptionService.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/StairwayTest/Public/Character/EnemyCharacter/BTNodes/BTS_FocusPlayerTarget.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/StairwayTest/Public/Character/EnemyCharacter/BTNodes/BTT_ChooseAttackOrHold.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/StairwayTest/Public/Character/EnemyCharacter/BTNodes/BTT_DoAttack.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/StairwayTest/Public/Character/EnemyCharacter/BTNodes/BTT_GeneratePatrolDestination.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/StairwayTest/Public/Character/EnemyCharacter/BTNodes/BTT_GenerateStrafeLocation.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/StairwayTest/Public/Character/EnemyCharacter/EnemyAIController.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.StairwayTest.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.StairwayTest.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/ModularRPGHeroesPolyart/Animations/SwordAndShieldStance/JumpAttack_SwordShieldAnim.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ModularRPGHeroesPolyart/Animations/SwordAndShieldStance/JumpAttack_SwordShieldAnim.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/ModularRPGHeroesPolyart/Animations/SwordAndShieldStance/NormalAttack01_SwordShieldAnim.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ModularRPGHeroesPolyart/Animations/SwordAndShieldStance/NormalAttack01_SwordShieldAnim.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/ModularRPGHeroesPolyart/Animations/SwordAndShieldStance/NormalAttack02_SwordShieldAnim.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ModularRPGHeroesPolyart/Animations/SwordAndShieldStance/NormalAttack02_SwordShieldAnim.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/ModularRPGHeroesPolyart/Animations/TwoHandSwordStance/JumpAttack_SingleTwohandSwordAnim.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ModularRPGHeroesPolyart/Animations/TwoHandSwordStance/JumpAttack_SingleTwohandSwordAnim.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/ModularRPGHeroesPolyart/Animations/TwoHandSwordStance/NormalAttack01_SingleTwohandSwordAnim.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ModularRPGHeroesPolyart/Animations/TwoHandSwordStance/NormalAttack01_SingleTwohandSwordAnim.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/ModularRPGHeroesPolyart/Animations/TwoHandSwordStance/NormalAttack02_SingleTwohandSwordAnim.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ModularRPGHeroesPolyart/Animations/TwoHandSwordStance/NormalAttack02_SingleTwohandSwordAnim.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Test/CombatantCharacter/EnemyCharacter/BT_EnemyAI.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Test/CombatantCharacter/EnemyCharacter/BT_EnemyAI.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Test/CombatantCharacter/EnemyCharacter/NewBlueprint.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Test/CombatantCharacter/PlayerCharacter/BP_PlayerCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Test/CombatantCharacter/PlayerCharacter/BP_PlayerCharacter.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Test/Maps/NewWorld.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Test/Maps/NewWorld.umap" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/StairwayTest/Private/Character/CombatantCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/StairwayTest/Private/Character/CombatantCharacter.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/StairwayTest/Private/Character/EnemyCharacter/EnemyCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/StairwayTest/Private/Character/EnemyCharacter/EnemyCharacter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/StairwayTest/Private/Character/EnemyCharacter/Knight/EnemyCharacter_Knight.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/StairwayTest/Private/Character/EnemyCharacter/Knight/EnemyCharacter_Knight.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/StairwayTest/Private/Character/EnemyCharacter/Warrior/EnemyCharacter_Warrior.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/StairwayTest/Private/Character/EnemyCharacter/Warrior/EnemyCharacter_Warrior.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/StairwayTest/Private/Character/PlayerCharacter/PlayerCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/StairwayTest/Private/Character/PlayerCharacter/PlayerCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/StairwayTest/Private/Character/StatsComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/StairwayTest/Private/Character/StatsComponent.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/StairwayTest/Private/EnemySpawnArea.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/StairwayTest/Private/EnemySpawnArea.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/StairwayTest/Public/Character/CombatantCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/StairwayTest/Public/Character/CombatantCharacter.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/StairwayTest/Public/Character/CombatantCharacter_Metadata.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/StairwayTest/Public/Character/CombatantCharacter_Metadata.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/StairwayTest/Public/Character/EnemyCharacter/EnemyCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/StairwayTest/Public/Character/EnemyCharacter/EnemyCharacter.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/StairwayTest/Public/Character/PlayerCharacter/PlayerCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/StairwayTest/Public/Character/PlayerCharacter/PlayerCharacter.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,7 +170,9 @@
       <workItem from="1722661754174" duration="18662000" />
       <workItem from="1722682799683" duration="523000" />
       <workItem from="1722683395570" duration="6495000" />
-      <workItem from="1722698397905" duration="3117000" />
+      <workItem from="1722698397905" duration="8672000" />
+      <workItem from="1722738793916" duration="12511000" />
+      <workItem from="1722759090580" duration="7663000" />
     </task>
     <servers />
   </component>
