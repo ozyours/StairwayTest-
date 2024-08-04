@@ -1,30 +1,30 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-#include "Character/EnemyCharacter/Knight/EnemyCharacter_Knight_Action.h"
+#include "Character/EnemyCharacter/BasicAttack/EnemyCharacter_Generic_Action.h"
 
 #include "Character/CombatantCharacter.h"
 #include "Character/CombatantCharacterAnimation.h"
 #include "Character/PlayerCharacter/PlayerCharacter_Attack.h"
 
-Test::Metadata::EnemyCharacter_Knight_Action_BasicAttack_1::EnemyCharacter_Knight_Action_BasicAttack_1()
+Test::Metadata::EnemyCharacter_Generic_Action_BasicAttack_1::EnemyCharacter_Generic_Action_BasicAttack_1()
 {
-	Param_Name = "EnemyKnightBasicAttack1";
+	Param_Name = "EnemyCharacterBasicAttack1";
 	Param_DisplayName = FText::FromString("Basic Attack 1");
-	Param_Class = UEnemyCharacter_Knight_Action_BasicAttack_1::StaticClass();
+	Param_Class = UEnemyCharacter_Generic_Action_BasicAttack_1::StaticClass();
 }
 
-Test::Metadata::EnemyCharacter_Knight_Action_BasicAttack_2::EnemyCharacter_Knight_Action_BasicAttack_2()
+Test::Metadata::EnemyCharacter_Generic_Action_BasicAttack_2::EnemyCharacter_Generic_Action_BasicAttack_2()
 {
-	Param_Name = "EnemyKnightBasicAttack2";
+	Param_Name = "EnemyCharacterBasicAttack2";
 	Param_DisplayName = FText::FromString("Basic Attack 2");
-	Param_Class = UEnemyCharacter_Knight_Action_BasicAttack_2::StaticClass();
+	Param_Class = UEnemyCharacter_Generic_Action_BasicAttack_2::StaticClass();
 }
 
-Test::Metadata::EnemyCharacter_Knight_Action_BasicAttack::EnemyCharacter_Knight_Action_BasicAttack()
+Test::Metadata::EnemyCharacter_Generic_Action_BasicAttack::EnemyCharacter_Generic_Action_BasicAttack()
 {
-	Param_Name = "EnemyKnightBasicAttack";
+	Param_Name = "EnemyCharacterBasicAttack";
 	Param_DisplayName = FText::FromString("Basic Attack");
-	Param_Class = UEnemyCharacter_Knight_Action_BasicAttack::StaticClass();
+	Param_Class = UEnemyCharacter_Generic_Action_BasicAttack::StaticClass();
 }
 
 // ##############################################################################
@@ -33,19 +33,19 @@ Test::Metadata::EnemyCharacter_Knight_Action_BasicAttack::EnemyCharacter_Knight_
 // ##############################################################################
 // ##############################################################################
 
-void UEnemyCharacter_Knight_Action_BasicAttack_1::OnBeginAction()
+void UEnemyCharacter_Generic_Action_BasicAttack_1::OnBeginAction()
 {
 	Super::OnBeginAction();
 	Cast<UCombatantCharacterAnimation>(GetCombatantCharacterOwner()->GetMesh()->GetAnimInstance())->BasicAttackIndex = 0;
 }
 
-void UEnemyCharacter_Knight_Action_BasicAttack_1::OnEndAction()
+void UEnemyCharacter_Generic_Action_BasicAttack_1::OnEndAction()
 {
 	Super::OnEndAction();
 	Cast<UCombatantCharacterAnimation>(GetCombatantCharacterOwner()->GetMesh()->GetAnimInstance())->BasicAttackIndex = -1;
 }
 
-void UEnemyCharacter_Knight_Action_BasicAttack_1::OnAnimationNotify(const FName& _NotifyName)
+void UEnemyCharacter_Generic_Action_BasicAttack_1::OnAnimationNotify(const FName& _NotifyName)
 {
 	Super::OnAnimationNotify(_NotifyName);
 	if (_NotifyName == NotifyName_Attack)
@@ -67,17 +67,17 @@ void UEnemyCharacter_Knight_Action_BasicAttack_1::OnAnimationNotify(const FName&
 // ##############################################################################
 // ##############################################################################
 
-void UEnemyCharacter_Knight_Action_BasicAttack_2::OnBeginAction()
+void UEnemyCharacter_Generic_Action_BasicAttack_2::OnBeginAction()
 {
 	Super::OnBeginAction();
 }
 
-void UEnemyCharacter_Knight_Action_BasicAttack_2::OnEndAction()
+void UEnemyCharacter_Generic_Action_BasicAttack_2::OnEndAction()
 {
 	Super::OnEndAction();
 }
 
-void UEnemyCharacter_Knight_Action_BasicAttack_2::OnAnimationNotify(const FName& _NotifyName)
+void UEnemyCharacter_Generic_Action_BasicAttack_2::OnAnimationNotify(const FName& _NotifyName)
 {
 	Super::OnAnimationNotify(_NotifyName);
 }
@@ -88,11 +88,11 @@ void UEnemyCharacter_Knight_Action_BasicAttack_2::OnAnimationNotify(const FName&
 // ##############################################################################
 // ##############################################################################
 
-TArray<Test::Metadata::CharacterActionMetadata> UEnemyCharacter_Knight_Action_BasicAttack::ChainActions()
+TArray<Test::Metadata::CharacterActionMetadata> UEnemyCharacter_Generic_Action_BasicAttack::ChainActions()
 {
 	return
 	{
-		Test::Metadata::EnemyCharacter_Knight_Action_BasicAttack_1(),
-		Test::Metadata::EnemyCharacter_Knight_Action_BasicAttack_2(),
+		Test::Metadata::EnemyCharacter_Generic_Action_BasicAttack_1(),
+		Test::Metadata::EnemyCharacter_Generic_Action_BasicAttack_2(),
 	};
 }

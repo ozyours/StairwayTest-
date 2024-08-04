@@ -10,7 +10,7 @@ EBTNodeResult::Type UBTT_GenerateStrafeLocation::ExecuteTask(UBehaviorTreeCompon
 	if (auto* _ai_controller = Cast<AEnemyAIController>(OwnerComp.GetOwner()))
 	{
 		const auto _start_location = _ai_controller->GetPawn()->GetActorLocation();
-		constexpr float _range = 500.f;
+		constexpr float _range = 350.f;
 		const auto _x = FMath::RandRange(-_range, _range);
 		const auto _y = FMath::RandRange(-_range, _range);
 

@@ -1,13 +1,14 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-#include "Character/PlayerCharacter/PlayerCharacter_Attack.h"
+#include "Character/EnemyCharacter/BasicAttack/EnemyCharacter_Generic_Attack.h"
 
 #include "Components/BoxComponent.h"
 
-APlayerCharacter_Attack_BasicAttack::APlayerCharacter_Attack_BasicAttack()
+AEnemyCharacter_Generic_Attack::AEnemyCharacter_Generic_Attack()
 {
 	BoxComponent = CreateDefaultSubobject<UBoxComponent>(TEXT("BoxComponent"));
 	BoxComponent->SetupAttachment(GetCollisionRoot());
-	BoxComponent->SetBoxExtent(FVector(75.f, 75.f, 100.f));
+	BoxComponent->SetBoxExtent(FVector(50.f, 75.f, 100.f));
 	BoxComponent->SetHiddenInGame(false);
 }
+

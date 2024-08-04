@@ -10,7 +10,7 @@ EBTNodeResult::Type UBTT_ChooseAttackOrHold::ExecuteTask(UBehaviorTreeComponent&
 	if (auto* _ai_controller = Cast<AEnemyAIController>(OwnerComp.GetOwner()))
 	{
 		const auto _roll_result = FMath::RandRange(0, 100);
-		if (_roll_result <= 40)
+		if (_roll_result <= 60)
 			_ai_controller->GetBlackboardComponent()->SetValueAsBool(AEnemyAIController::BBKey_DecideToAttack, true);
 		else
 			_ai_controller->GetBlackboardComponent()->SetValueAsBool(AEnemyAIController::BBKey_DecideToAttack, false);

@@ -54,7 +54,7 @@ private:
 	TArray<UStatsComponent*> SpawnedCharacters;
 	TArray<FDelegateHandle> DH_SpawnedCharacters;
 	void SpawnCharacters();
-	void OnSpawnedCharacterEliminated();
+	void OnSpawnedCharacterEliminated(UStatsComponent* _stats_component);
 	// Respawn timer after all spawned characters are eliminated (in seconds)
 	static constexpr float RespawnTimer = 8.f;
 	FTimerHandle TH_Respawn;

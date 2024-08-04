@@ -5,23 +5,23 @@
 #include "CoreMinimal.h"
 #include "CharacterAction/CharacterAction.h"
 #include "CharacterAction/CharacterAction_Metadata.h"
-#include "EnemyCharacter_Warrior_Action.generated.h"
+#include "EnemyCharacter_Generic_Action.generated.h"
 
 namespace Test::Metadata
 {
-	struct EnemyCharacter_Warrior_Action_BasicAttack_1 : CharacterActionMetadata
+	struct EnemyCharacter_Generic_Action_BasicAttack_1 : CharacterActionMetadata
 	{
-		EnemyCharacter_Warrior_Action_BasicAttack_1();
+		EnemyCharacter_Generic_Action_BasicAttack_1();
 	};
 
-	struct EnemyCharacter_Warrior_Action_BasicAttack_2 : CharacterActionMetadata
+	struct EnemyCharacter_Generic_Action_BasicAttack_2 : CharacterActionMetadata
 	{
-		EnemyCharacter_Warrior_Action_BasicAttack_2();
+		EnemyCharacter_Generic_Action_BasicAttack_2();
 	};
 
-	struct EnemyCharacter_Warrior_Action_BasicAttack : CharacterActionMetadata
+	struct EnemyCharacter_Generic_Action_BasicAttack : CharacterActionMetadata
 	{
-		EnemyCharacter_Warrior_Action_BasicAttack();
+		EnemyCharacter_Generic_Action_BasicAttack();
 	};
 };
 
@@ -33,12 +33,12 @@ namespace Test::Metadata
 
 // Basic Attack 1
 UCLASS()
-class STAIRWAYTEST_API UEnemyCharacter_Warrior_Action_BasicAttack_1 : public UCharacterAction
+class STAIRWAYTEST_API UEnemyCharacter_Generic_Action_BasicAttack_1 : public UCharacterAction
 {
 	GENERATED_BODY()
 
 public:
-	virtual Test::Metadata::CharacterActionMetadata CharacterActionMetadata() override { return Test::Metadata::EnemyCharacter_Warrior_Action_BasicAttack_1(); }
+	virtual Test::Metadata::CharacterActionMetadata CharacterActionMetadata() override { return Test::Metadata::EnemyCharacter_Generic_Action_BasicAttack_1(); }
 
 protected:
 	virtual void OnBeginAction() override;
@@ -54,12 +54,12 @@ protected:
 
 // Basic Attack 2
 UCLASS()
-class STAIRWAYTEST_API UEnemyCharacter_Warrior_Action_BasicAttack_2 : public UCharacterAction
+class STAIRWAYTEST_API UEnemyCharacter_Generic_Action_BasicAttack_2 : public UCharacterAction
 {
 	GENERATED_BODY()
 
 public:
-	virtual Test::Metadata::CharacterActionMetadata CharacterActionMetadata() override { return Test::Metadata::EnemyCharacter_Warrior_Action_BasicAttack_2(); }
+	virtual Test::Metadata::CharacterActionMetadata CharacterActionMetadata() override { return Test::Metadata::EnemyCharacter_Generic_Action_BasicAttack_2(); }
 
 protected:
 	virtual void OnBeginAction() override;
@@ -75,12 +75,12 @@ protected:
 
 // Basic Attack
 UCLASS()
-class STAIRWAYTEST_API UEnemyCharacter_Warrior_Action_BasicAttack : public UChainedCharacterAction
+class STAIRWAYTEST_API UEnemyCharacter_Generic_Action_BasicAttack : public UChainedCharacterAction
 {
 	GENERATED_BODY()
 
 public:
-	virtual Test::Metadata::CharacterActionMetadata CharacterActionMetadata() override { return Test::Metadata::EnemyCharacter_Warrior_Action_BasicAttack(); }
+	virtual Test::Metadata::CharacterActionMetadata CharacterActionMetadata() override { return Test::Metadata::EnemyCharacter_Generic_Action_BasicAttack(); }
 
 protected:
 	virtual TArray<Test::Metadata::CharacterActionMetadata> ChainActions() override;

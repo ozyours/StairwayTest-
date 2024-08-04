@@ -13,6 +13,7 @@
 #include "InputMappingContext.h"
 #include "Perception/AIPerceptionStimuliSourceComponent.h"
 #include "Perception/AISense_Sight.h"
+#include "UI/SPlayerHUD.h"
 
 Test::Metadata::PlayerCharacter::PlayerCharacter()
 {
@@ -74,6 +75,8 @@ void APlayerCharacter::BeginPlay()
 	Super::BeginPlay();
 	Activate();
 	AIPerceptionStimulus->RegisterWithPerceptionSystem();
+
+	GEngine->GameViewport->AddViewportWidgetContent(SNew(SPlayerHUD).PlayerCharacter(this));
 }
 
 void APlayerCharacter::Tick(float DeltaTime)

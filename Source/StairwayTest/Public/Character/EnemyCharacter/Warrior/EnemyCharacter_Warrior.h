@@ -7,7 +7,6 @@
 #include "Character/EnemyCharacter/EnemyCharacter.h"
 #include "EnemyCharacter_Warrior.generated.h"
 
-
 // Define and declare the metadata
 namespace Test::Metadata
 {
@@ -35,4 +34,8 @@ class STAIRWAYTEST_API AEnemyCharacter_Warrior : public AEnemyCharacter
 public:
 	AEnemyCharacter_Warrior();
 	virtual Test::Metadata::CombatantCharacterMetadata CombatantCharacterMetadata() override;
+
+private:
+	UPROPERTY(VisibleAnywhere)
+	UStaticMeshComponent* RightWeapon;
 };

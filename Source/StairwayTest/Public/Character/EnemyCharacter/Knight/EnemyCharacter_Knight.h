@@ -34,4 +34,10 @@ class STAIRWAYTEST_API AEnemyCharacter_Knight : public AEnemyCharacter
 public:
 	AEnemyCharacter_Knight();
 	virtual Test::Metadata::CombatantCharacterMetadata CombatantCharacterMetadata() override;
+
+private:
+	UPROPERTY(VisibleAnywhere)
+	UStaticMeshComponent* LeftWeapon;
+	UPROPERTY(VisibleAnywhere)
+	UStaticMeshComponent* RightWeapon;
 };

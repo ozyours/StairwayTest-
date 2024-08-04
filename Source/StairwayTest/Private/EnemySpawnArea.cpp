@@ -15,10 +15,12 @@ AEnemySpawnArea::AEnemySpawnArea()
 	Root = CreateDefaultSubobject<USceneComponent>(TEXT("RootComponent"));
 	SetRootComponent(Root);
 
+#if WITH_EDITOR
 	auto* _sprite = CreateEditorOnlyDefaultSubobject<UBillboardComponent>(TEXT("RootSprite"));
 	_sprite->SetupAttachment(GetRootComponent());
 	_sprite->SetRelativeLocation(FVector(0.5f));
 	_sprite->SetSprite(ConstructorHelpers::FObjectFinder<UTexture2D>(TEXT("/Script/Engine.Texture2D'/Engine/EditorResources/Ai_Spawnpoint.Ai_Spawnpoint'")).Object);
+#endif
 
 	BoxComponent = CreateDefaultSubobject<UBoxComponent>(TEXT("BoxComponent"));
 	BoxComponent->SetupAttachment(GetRootComponent());
@@ -74,24 +76,22 @@ void AEnemySpawnArea::SpawnCharacters()
 			auto* _character = ACombatantCharacter::Spawn(GetWorld(), _class, RandomizeSpawnLocation(), FRotator(0, FMath::RandRange(0, 360), 0));
 			SpawnedCharacters.Add(_character->GetStatsComponent());
 
-			auto _delegate_handle = _character->GetStatsComponent()->OnEliminated_Delegate.AddLambda([this](UStatsComponent* _stats_component)
-			{
-				const auto _index = SpawnedCharacters.Find(_stats_component);
-				if (_index >= 0)
-				{
-					SpawnedCharacters[_index]->OnEliminated_Delegate.Remove(DH_SpawnedCharacters[_index]);
-					SpawnedCharacters.RemoveAt(_index);
-					DH_SpawnedCharacters.RemoveAt(_index);
-				}
-				OnSpawnedCharacterEliminated();
-			});
+			auto _delegate_handle = _character->GetStatsComponent()->OnEliminated_Delegate.AddUObject(this, &AEnemySpawnArea::OnSpawnedCharacterEliminated);
 			DH_SpawnedCharacters.Add(_delegate_handle);
 		}
 	}
 }
 
-void AEnemySpawnArea::OnSpawnedCharacterEliminated()
+void AEnemySpawnArea::OnSpawnedCharacterEliminated(UStatsComponent* _stats_component)
 {
+	const auto _index = SpawnedCharacters.Find(_stats_component);
+	if (_index >= 0)
+	{
+		SpawnedCharacters[_index]->OnEliminated_Delegate.Remove(DH_SpawnedCharacters[_index]);
+		SpawnedCharacters.RemoveAt(_index);
+		DH_SpawnedCharacters.RemoveAt(_index);
+	}
+
 	if (SpawnedCharacters.Num() == 0)
 	{
 		RespawnText->SetText(FText::FromString("Respawning"));

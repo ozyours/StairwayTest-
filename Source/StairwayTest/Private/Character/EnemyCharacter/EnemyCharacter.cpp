@@ -19,14 +19,16 @@ AEnemyCharacter::AEnemyCharacter()
 	HPWidgetComponent->SetupAttachment(GetRootComponent());
 	HPWidgetComponent->SetDrawSize(FVector2D(128.f, 16.f));
 	HPWidgetComponent->SetRelativeLocation(FVector(0.f, 0.f, 80.f));
-	HPWidgetComponent->SetSlateWidget(SNew(SEnemyCharacter_HPWidget).EnemyCharacter(this));
 	HPWidgetComponent->SetWidgetSpace(EWidgetSpace::Screen);
+
+	GetCharacterMovement()->bUseRVOAvoidance = true;
 }
 
 void AEnemyCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 	Activate();
+	HPWidgetComponent->SetSlateWidget(SNew(SEnemyCharacter_HPWidget).EnemyCharacter(this));
 }
 
 void AEnemyCharacter::Tick(float DeltaTime)
@@ -43,5 +45,6 @@ void AEnemyCharacter::Tick(float DeltaTime)
 void AEnemyCharacter::OnDeactivated()
 {
 	Super::OnDeactivated();
+	GetController()->UnPossess();
 	SetLifeSpan(1.f);
 }
